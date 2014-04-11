@@ -5,6 +5,7 @@
 $ ->
   $('#calendar').fullCalendar
     firstDay: 1
+    aspectRatio: 2
     events:
       url: '/courses/dates'
       backgroundColor: 'yellow'

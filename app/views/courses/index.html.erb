@@ -1,8 +1,9 @@
-<h1>Willkommen auf der KAMA-Website!</h1>
 
-Dieses Projekt ... 
-
-<div id="content">
+<div id="welcome_content">
+  <div id="introduction">
+    <h1>Willkommen auf der KAMA-Website!</h1>
+  </div>
+  
   <div id="calendar"></div>
 
   <%= link_to 'New Course', new_course_path %>
@@ -13,7 +14,7 @@ Dieses Projekt ...
 </div>
 
 <% content_for :head do %>
-  <%= stylesheet_link_tag 'fullcalendar' -%>
-  <%= stylesheet_link_tag 'fullcalendar.print' -%>
+  <%= stylesheet_link_tag 'fullcalendar' %>
+  <%= stylesheet_link_tag 'fullcalendar.print' %>
   <%= javascript_include_tag 'fullcalendar.min' %>
 <% end %>

@@ -1,6 +1,8 @@
 Kama::Application.routes.draw do
   devise_for :users
   get 'courses/dates' => 'courses#dates'
+  get 'about' => 'static#about'
+  get 'impressum' => 'static#impressum'
   resources :courses
 
   root 'courses#index'

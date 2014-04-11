@@ -2,9 +2,15 @@
 
 Dieses Projekt ... 
 
-<div id="calendar"></div>
+<div id="content">
+  <div id="calendar"></div>
 
-<%= link_to 'New Course', new_course_path %>
+  <%= link_to 'New Course', new_course_path %>
+</div>
+
+<div id="news">
+  Hier sollen Blog-Eintraege hin!
+</div>
 
 <% content_for :head do %>
   <%= stylesheet_link_tag 'fullcalendar' -%>

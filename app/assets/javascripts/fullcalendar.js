@@ -2392,7 +2392,7 @@ function BasicView(element, calendar, viewName) {
 			"</div>" +
 			// insert admin handlers
 			// TODO: only if logged in, only if user is allowed to add/edit
-			"<div class='fc-day-handlers'><a href='/courses/new?year="+formatDate(date, 'yyyy')+"&month="+formatDate(date, 'MM')+"&day="+formatDate(date, 'dd')+"'><img src='assets/new.png' /></a></div>" +			
+			"<div class='fc-day-handlers'><a href='/courses/new?year="+formatDate(date, 'yyyy')+"&month="+formatDate(date, 'MM')+"&day="+formatDate(date, 'dd')+"'><img src='assets/new.png' alt='Create new course on this day' /></a></div>" +			
 			"</div>" +
 			"</td>";
 

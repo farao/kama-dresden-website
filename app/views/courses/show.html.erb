@@ -18,7 +18,9 @@
   <%= @course.category_id %>
 </p>
 
+<div class="mod-menu">
 <% if can? :update, @course %>
-  <%= link_to 'Edit', edit_course_path(@course) %> |
+  <%= link_to image_tag('edit.png')+'Edit', edit_course_path(@course), class: 'btn' %> |
   <% end %>
-<%= link_to image_tag('back.png', class: 'btn')+'Back', '/courses' %>
+<%= link_to image_tag('back.png')+'Back', '/courses', class: 'btn' %>
+</div>

@@ -8,7 +8,7 @@
 // ---------------------
 
 #calendar {
-  width: 90%;
+  width: 100%;
   margin-top: 40px;
 }
 
@@ -30,7 +30,7 @@
 
 .fc-mod-link {
   float: right;
-  margin: 10px 100px 0px 0px;
+  margin: 10px 0px;
 }
 
 // ------ colors -------
@@ -53,5 +53,9 @@
 .edit_course fieldset {
   border: 0px;
   border-bottom: 1px solid #6C580E;
+}
+a.remove_fields {
+  position: relative;
+  top: 12px;
 }
 

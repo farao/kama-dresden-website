@@ -1,0 +1,80 @@
+
+// ----- general ------
+
+body {
+  background-color: #FFF;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a {
+  color: #8E792F;
+  text-decoration: none;
+  &:visited {
+    color: #6C580E;
+  }
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+#notice, #alert {
+  background-color: #FFE500;
+}
+#notice {
+  color: green;
+}
+
+// ----- navigation ------
+
+#navWrapper {
+  background-color: #E7D490;
+}
+#navbar li:hover {
+  background-color: #D1B44E;
+}
+#navbar a, #navbar a:visited, #navbar a:hover {
+  color: #6C580E;
+  text-decoration: none;
+}
+
+// ----- forms etc ------
+
+/* form {
+  padding: 10px;
+  border: 3px dashed #E7D490;
+} // */
+
+input, textarea, #calendar .fc-button, .btn, .add_fields {
+  border: 1px solid #E7D490;
+  border-radius: 2px;
+  background: #FFFAE4;
+}
+.actions input, #calendar .fc-button, .btn, .add_fields {
+  color: #6C580E;
+  font-weight: bold;
+  &:active {
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+  &:hover {
+  text-decoration: none;
+  }
+}
+/*
+.btn:hover, .add_fields:hover {
+  background-color: #EEE;
+}*/

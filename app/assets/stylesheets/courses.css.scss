@@ -10,8 +10,26 @@
 #calendar .fc-day {
   padding: 5px;
 }
-#calendar .fc-day-header{
+#calendar .fc-day-header {
   padding: 2px;
+}
+
+#calendar .fc-day-handlers {
+  float: right;
+  display: none;
+}
+#calendar td.fc-day:hover .fc-day-handlers {
+  display: block;
+}
+
+.fc-mod-link {
+  float: right;
+  margin: 10px 100px 0px 0px;
+}
+.fc-mod-link img {
+  position: relative;
+  top: 3px;
+  margin-right: 3px;
 }
 
 // ------ colors -------

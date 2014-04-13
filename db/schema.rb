@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131115103711) do
+ActiveRecord::Schema.define(version: 20140413164216) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20131115103711) do
     t.integer  "failed_attempts",        default: 0,  null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
+    t.boolean  "instructor"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

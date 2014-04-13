@@ -11,22 +11,20 @@ class CoursesController < ApplicationController
     start_date = Time.at(params[:start].to_i)
     end_date = Time.at(params[:end].to_i)
 
-    courses = Course.between(start_date, end_date)
+    course_dates = CourseDate.where(time: start_date..end_date)
 
     dates = []
-    courses.each do |course|
-      course.course_dates.each do |course_date|
-        date = {
-          id: course_date.id,
-          title: course.name,
-          allDay: false,
-          start: course_date.time.to_i,
-          end: course_date.end.to_i,
-          url: course_path(course.id),
-          editable: true
-        }
-        dates << date
-      end
+    course_dates.each do |course_date|
+      date = {
+        id: course_date.id,
+        title: course_date.course.name,
+        allDay: false,
+        start: course_date.time.to_i,
+        end: course_date.end.to_i,
+        url: course_path(course_date.course.id),
+        editable: true
+      }
+      dates << date
     end
 
     respond_to do |format|
@@ -41,24 +39,26 @@ class CoursesController < ApplicationController
 
   # GET /courses/new
   def new
-    @course = Course.new
-    @year = params[:year]
-    @month = params[:month]
-    @day = params[:day]
+    if can? "create"
+      @course = Course.new
+      @year = params[:year]
+      @month = params[:month]
+      @day = params[:day]
+    else
+      format.html { redirect_to courses_path(), alert: 'You are not allowed to create own courses'}
+    end
   end
 
   # GET /courses/1/edit
   def edit
-    @course = Course.get(params[:id])
+    @course = Course.find(params[:id])
   end
 
   # POST /courses
   # POST /courses.json
   def create
     @course = Course.new(course_params)
-    @course.user = current_user # restrict & only if params[user..] not set
-
-    p course_params
+    @course.user = current_user # TODO restrict & only if params[user..] not set
 
     respond_to do |format|
       if @course.save
@@ -103,15 +103,10 @@ class CoursesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
-      #params.require(:course).permit!
-      params.require(:course).permit(:name, :description, :category_id, :user_id).tap do |whitelisted|
-        whitelisted[:course_dates_attributes] = params[:course][:course_dates_attributes]
-      end
-      #if current_user.admin?
-      #  attributes = [:name, :description, :category_id, :user_id, course_dates_attributes: params[:course][:course_dates_attributes]]
-      #  params.require(:course).permit(*attributes)
-      #else
-      #  params.require(:course).permit(:name, :description, :category_id, course_dates_attributes: [:time, :place, :_destroy])
-      #end
+      attrs = params.require(:course).permit(:name, :description, :category_id, :user_id)
+      attrs[:course_dates_attributes] = params[:course][:course_dates_attributes]
+
+      attrs.permit(:user_id) if current_user.admin?
+      attrs
     end
 end

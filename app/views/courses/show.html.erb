@@ -1,12 +1,7 @@
-<p>
-  <strong>Name:</strong>
-  <%= @course.name %>
-</p>
+<h2><%= @course.name %></h2>
+<div class="course-date">1 Febuary 2015</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @course.description %>
-</p>
+<p class="course-desc"><%= @course.description %></p>
 
 <p>
   <strong>Instructor:</strong>
@@ -22,5 +17,5 @@
 <% if can? :update, @course %>
   <%= link_to image_tag('edit.png')+'Edit', edit_course_path(@course), class: 'btn' %> |
   <% end %>
-<%= link_to image_tag('back.png')+'Back', '/courses', class: 'btn' %>
+<%= link_to image_tag('back.png')+'Overview', '/courses', class: 'btn' %>
 </div>

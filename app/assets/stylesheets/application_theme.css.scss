@@ -74,7 +74,26 @@ input, textarea, #calendar .fc-button, .btn, .add_fields {
   text-decoration: none;
   }
 }
-/*
-.btn:hover, .add_fields:hover {
-  background-color: #EEE;
-}*/
+
+// ----- calendar/events ------
+
+#calendar .fc-day-header{
+  background-color: #E7D490;
+  border: 0px;
+}
+
+#calendar .fc-day:hover {
+  background-color: #FFFDE8;
+}
+
+#calendar .fc-today {
+  background-color: #FFFABE;
+}
+
+.edit_course fieldset {
+  border-bottom: #6C580E;
+}
+
+.course-desc {
+  border-left: 2px solid #E7D490;
+}

@@ -44,4 +44,4 @@ end
 gem 'simple_form'
 gem 'datetimepicker'
 gem 'devise'
-gem 'cancan'
+gem 'cancancan', '~> 1.7'

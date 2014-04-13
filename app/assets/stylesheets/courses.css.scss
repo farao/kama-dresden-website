@@ -6,3 +6,23 @@
   width: 90%;
   margin-top: 40px;
 }
+
+#calendar .fc-day {
+  padding: 5px;
+}
+#calendar .fc-day-header{
+  padding: 2px;
+}
+
+// ------ colors -------
+
+#calendar .fc-day-header{
+  background-color: #E7D490;
+  border: 0px;
+}
+#calendar .fc-day:hover {
+  background-color: #FFFDE8;
+}
+#calendar .fc-today {
+  background-color: #FFFABE;
+}

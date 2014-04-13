@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+// ---------------------
+// --- calendar view ---
+// ---------------------
+
 #calendar {
   width: 90%;
   margin-top: 40px;
@@ -16,20 +21,16 @@
 
 #calendar .fc-day-handlers {
   float: right;
-  display: none;
+  display: block;
+  visibility: hidden;
 }
 #calendar td.fc-day:hover .fc-day-handlers {
-  display: block;
+  visibility: visible;
 }
 
 .fc-mod-link {
   float: right;
   margin: 10px 100px 0px 0px;
-}
-.fc-mod-link img {
-  position: relative;
-  top: 3px;
-  margin-right: 3px;
 }
 
 // ------ colors -------
@@ -44,3 +45,13 @@
 #calendar .fc-today {
   background-color: #FFFABE;
 }
+
+// ---------------------
+// ----- edit view -----
+// ---------------------
+
+.edit_course fieldset {
+  border: 0px;
+  border-bottom: 1px solid #6C580E;
+}
+

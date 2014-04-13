@@ -31,7 +31,7 @@
   <% f.fields_for :course_dates do |builder| %>
     <%= render "courses/course_date_fields", f: builder %>
   <% end %>
-  <%= link_to_add_course_date "Add Course Date", f %>
+  <%= link_to_add_course_date image_tag('plus.png', class: 'btn')+"Add Course Date", f %>
 
   <div class="field">
     <%= f.label :category_id %><br>

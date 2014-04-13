@@ -8,8 +8,8 @@ class CoursesController < ApplicationController
   end
 
   def dates
-    start_date = Time.at(params[:start].to_i)
-    end_date = Time.at(params[:end].to_i)
+    start_date = Time.at(params[:start].to_i) - 2.weeks
+    end_date = Time.at(params[:end].to_i) + 2.weeks
 
     course_dates = CourseDate.where(time: start_date..end_date)
 
@@ -39,14 +39,10 @@ class CoursesController < ApplicationController
 
   # GET /courses/new
   def new
-    if can? "create"
-      @course = Course.new
-      @year = params[:year]
-      @month = params[:month]
-      @day = params[:day]
-    else
-      format.html { redirect_to courses_path(), alert: 'You are not allowed to create own courses'}
-    end
+    @course = Course.new
+    @year = params[:year]
+    @month = params[:month]
+    @day = params[:day]
   end
 
   # GET /courses/1/edit
@@ -57,6 +53,8 @@ class CoursesController < ApplicationController
   # POST /courses
   # POST /courses.json
   def create
+    authorize! :create, Course, message: "You are not allowed to create an own course!"
+
     @course = Course.new(course_params)
     @course.user = current_user # TODO restrict & only if params[user..] not set
 
@@ -74,6 +72,8 @@ class CoursesController < ApplicationController
   # PATCH/PUT /courses/1
   # PATCH/PUT /courses/1.json
   def update
+    authorize! :update, @course, message: "You are not allowed to edit this course!"
+
     respond_to do |format|
       if @course.update(course_params)
         format.html { redirect_to @course, notice: 'Course was successfully updated.' }
@@ -88,6 +88,8 @@ class CoursesController < ApplicationController
   # DELETE /courses/1
   # DELETE /courses/1.json
   def destroy
+    authorize! :destroy, @course, message: "You are not allowed to delete this course!"
+
     @course.destroy
     respond_to do |format|
       format.html { redirect_to courses_url }

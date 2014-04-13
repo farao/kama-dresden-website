@@ -42,20 +42,27 @@ class CoursesController < ApplicationController
   # GET /courses/new
   def new
     @course = Course.new
+    @year = params[:year]
+    @month = params[:month]
+    @day = params[:day]
   end
 
   # GET /courses/1/edit
   def edit
+    @course = Course.get(params[:id])
   end
 
   # POST /courses
   # POST /courses.json
   def create
     @course = Course.new(course_params)
+    @course.user = current_user # restrict & only if params[user..] not set
+
+    p course_params
 
     respond_to do |format|
       if @course.save
-        format.html { redirect_to @course, notice: 'Course was successfully created.' }
+        format.html { redirect_to courses_path(), notice: 'Course was successfully created.' }
         format.json { render action: 'show', status: :created, location: @course }
       else
         format.html { render action: 'new' }
@@ -96,6 +103,15 @@ class CoursesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
-      params.require(:course).permit(:name, :description, :instructor, :category_id)
+      #params.require(:course).permit!
+      params.require(:course).permit(:name, :description, :category_id, :user_id).tap do |whitelisted|
+        whitelisted[:course_dates_attributes] = params[:course][:course_dates_attributes]
+      end
+      #if current_user.admin?
+      #  attributes = [:name, :description, :category_id, :user_id, course_dates_attributes: params[:course][:course_dates_attributes]]
+      #  params.require(:course).permit(*attributes)
+      #else
+      #  params.require(:course).permit(:name, :description, :category_id, course_dates_attributes: [:time, :place, :_destroy])
+      #end
     end
 end

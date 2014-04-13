@@ -11,4 +11,9 @@ class User < ActiveRecord::Base
   validates :last_name, presence: true
   validates :description, presence: true
   validates :admin, presence: true
+  validates :instructor, presence: true
+
+  def full_name
+    first_name + ' ' + last_name
+  end
 end

@@ -16,6 +16,15 @@
 //= require datetimepicker
 //= require fullcalendar.min
 
+// load event handlers
+$(document).ready(function() {
+    var n = $('#notice');
+    var a = $('#alert');
+    n.click(function() { n.slideToggle(); } );
+    a.click(function() { a.slideToggle(); } );
+});
+
+// load floating navbar
 $(function() {
     // Stick the #navbar to the top of the window
     var nav = $('#navWrapper');
@@ -24,8 +33,7 @@ $(function() {
     var isFixed = false;
     var $w = $(window);
     $w.scroll(function() {
-        var scrollTop = $w.scrollTop();
-        var shouldBeFixed = scrollTop > navHomeY;
+        var shouldBeFixed = $w.scrollTop() > navHomeY;
         if (shouldBeFixed && !isFixed) {
             nav.css({
                 position: 'fixed',
@@ -43,8 +51,11 @@ $(function() {
                 position: 'static'
             });
             nav.removeClass('shadow');
-            navLogo.fadeOut();
+            navLogo.fadeOut(300);
             isFixed = false;
         }
     });
 });
+
+
+

@@ -9,9 +9,6 @@
 </head>
 <body>
 
-<% unless notice.nil? %><p class="notice"><%= notice %></p><% end %>
-<% unless alert.nil? %><p class="alert"><%= alert %></p><% end %>
-
 <div id="header">
 
   <%= image_tag 'header.png' %>
@@ -25,9 +22,14 @@
       </ul>
       <%= image_tag 'navbar_logo.png', id: 'navLogo' %>
     </div>
+    
   </div>
 
+
 </div>
+
+<% unless notice.nil? %><div id="notice"><%= notice %></div><% end %>
+<% unless alert.nil? %><div id="alert"><%= alert %></div><% end %>
 
 <div id="content">
 

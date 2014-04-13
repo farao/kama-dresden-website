@@ -110,9 +110,9 @@ body {
 #navbar li:hover {
     background-color: #D1B44E;
 }
-#navbar a, #navbar a:hover {
+#navbar a, #navbar a:visited, #navbar a:hover {
+    color: #6C580E;
     text-decoration: none;
-    background-color: transparent;
 }
 
 #notice, #alert {

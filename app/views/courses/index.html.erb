@@ -6,7 +6,7 @@
   
   <div id="calendar"></div>
 
-  <%= link_to 'New Course', new_course_path %>
+  <span class="fc-mod-link"><%= link_to( image_tag('new.png')+'New Course', new_course_path) %></span>
 </div>
 
 <div id="news">
@@ -16,5 +16,5 @@
 <% content_for :head do %>
   <%= stylesheet_link_tag 'fullcalendar' %>
   <%= stylesheet_link_tag 'fullcalendar.print' %>
-  <%= javascript_include_tag 'fullcalendar.min' %>
+  <%= javascript_include_tag 'fullcalendar' %>
 <% end %>

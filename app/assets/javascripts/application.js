@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require_tree .
 //= require datetimepicker
-//= require fullcalendar.min
+//= require fullcalendar
 
 // load event handlers
 $(document).ready(function() {

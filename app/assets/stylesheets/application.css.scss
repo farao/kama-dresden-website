@@ -21,13 +21,21 @@
 body {
   margin: 0px;
   padding: 0px;
+
+  height: 100%;
 }
 
-#header {
+#footer {
+  clear: both;
+  width: 100%;
+  height: 30px;
+  padding: 10px;
 }
 
 #content {
   padding: 20px;
+  margin-bottom: 30px;
+  height: 100%;
 }
 
 #welcome_content {
@@ -151,6 +159,7 @@ form .actions {
 
 .mod-menu {
   padding: 3px;
+  padding-top: 10px;
   border-top: 1px solid #EEE;
 }
 

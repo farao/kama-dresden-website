@@ -19,36 +19,45 @@
 // ---------------------
 
 body {
-    margin: 0px;
-    padding: 0px;
+  margin: 0px;
+  padding: 0px;
+
+  height: 100%;
 }
 
-#header {
+#footer {
+  clear: both;
+  width: 100%;
+  height: 30px;
+  padding: 10px;
 }
 
 #content {
-    padding: 20px;
+  padding: 20px;
+  margin-bottom: 30px;
+  height: 100%;
 }
 
 #welcome_content {
-    float: left;
-    width: 70%;
-    min-width: 400px;
-    padding: 10px;
+  float: left;
+  width: 60%;
+  min-width: 400px;
+  padding: 20px;
 }
 
 #news {
-    min-width: 200px;
-    padding: 10px;
+  min-width: 200px;
+  padding: 20px;
+  overflow: hidden;
 }
 
 .clearer {
-    clear: both;
+  clear: both;
 }
 
 #notice, #alert {
-    position: relative;
-    padding: 5px 30px;
+  position: relative;
+  padding: 5px 30px;
 }
 
 // ---------------------
@@ -56,69 +65,119 @@ body {
 // ---------------------
 
 #navWrapper {
-    position: static;
-    z-index: 100;
-    height: 30px;
-    width: 100%;
-    margin-top: auto;
-    margin-bottom: auto;
+  position: static;
+  z-index: 100;
+  height: 30px;
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 #navbar {
-    position: relative;
-    margin: 0px;
-    padding-left: 20px;
-    display: block;
-    font-weight: bold;
+  position: relative;
+  margin: 0px;
+  padding-left: 20px;
+  display: block;
+  font-weight: bold;
 }
 
 #navbar ul {
-    display: block;
-    padding: 0px;
-    margin: 0px;
-    list-style-type: none;
+  display: block;
+  padding: 0px;
+  margin: 0px;
+  list-style-type: none;
 }
 
 #navbar li {
-    display: block;
-    float: left;
-    padding: 5px;
-    padding-right: 10px;
-    padding-left: 10px;
+  display: block;
+  float: left;
+  padding: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 #navLogo {
-    position: absolute;
-    right: 20px;
-    margin-top: 5px;
-    height: 20px;
-    width: 200px;
-    display: none;
+  position: absolute;
+  right: 20px;
+  margin-top: 5px;
+  height: 20px;
+  width: 200px;
+  display: none;
 }
 
 // ---------------------
-// ------ colors -------
+// ----- forms etc -----
 // ---------------------
 
-body {
-    background-color: #F3FFC4;
+form {
+  max-width: 500px;
+  margin-bottom: 10px;
+}
+input, textarea {
+  padding: 3px;
 }
 
-#navWrapper {
-    background-color: #E7D490;
+form .field {
+  margin-bottom: 10px;
 }
-#navbar li:hover {
-    background-color: #D1B44E;
-}
-#navbar a, #navbar a:visited, #navbar a:hover {
-    color: #6C580E;
-    text-decoration: none;
+form .actions {
+  text-align: right;
 }
 
-#notice, #alert {
-    background-color: #FFE500;
+.field input[type="text"], .field textarea {
+  width: 400px;
 }
 
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff;
+  }
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}
+
+.mod-menu {
+  padding: 3px;
+  padding-top: 10px;
+  border-top: 1px solid #EEE;
+}
+
+.btn, .add_fields {
+  padding: 5px 10px 5px 5px;
+  margin: 5px 0px;
+  font-weight: bold;
+  font-size: .9em;
+}
+img.btn {
+  padding: 5px;
+}
+
+.btn img, .add_fields img {
+  position: relative;
+  top: 3px;
+  margin-right: 3px;
+}
 
 // ---------------------
 // ------- misc --------
@@ -128,10 +187,4 @@ body {
   -moz-box-shadow: 0 2px 2px 0 #888;
   -webkit-box-shadow: 0 2px 2px 0 #888;
   box-shadow: 0 2px 2px 0 #888;
-}
-
-.btn {
-  position: relative;
-  top: 3px;
-  margin-right: 3px;
 }

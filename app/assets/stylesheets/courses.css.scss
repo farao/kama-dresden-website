@@ -8,7 +8,7 @@
 // ---------------------
 
 #calendar {
-  width: 90%;
+  width: 100%;
   margin-top: 40px;
 }
 
@@ -30,28 +30,28 @@
 
 .fc-mod-link {
   float: right;
-  margin: 10px 100px 0px 0px;
+  margin: 10px 0px;
 }
 
-// ------ colors -------
 
-#calendar .fc-day-header{
-  background-color: #E7D490;
-  border: 0px;
-}
-#calendar .fc-day:hover {
-  background-color: #FFFDE8;
-}
-#calendar .fc-today {
-  background-color: #FFFABE;
+// ----------------------
+// --- show/edit view ---
+// ----------------------
+
+.course-date {
+  font-style: italic;
 }
 
-// ---------------------
-// ----- edit view -----
-// ---------------------
+.course-desc {
+  padding-left: 20px;
+}
 
 .edit_course fieldset {
   border: 0px;
-  border-bottom: 1px solid #6C580E;
+  border-bottom: 1px solid;
+}
+a.remove_fields {
+  position: relative;
+  top: 12px;
 }
 

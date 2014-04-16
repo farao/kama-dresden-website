@@ -31,9 +31,9 @@
   <% f.fields_for :course_dates do |builder| %>
     <%= render "courses/course_date_fields", f: builder %>
   <% end %>
-  <%= link_to_add_course_date image_tag('plus.png', class: 'btn')+"Add Course Date", f %>
+  <%= link_to_add_course_date image_tag('plus.png')+"Add Course Date", f %>
 
-  <div class="field">
+  <div class="field" style="margin-top: 10px;">
     <%= f.label :category_id %><br>
     <%= f.collection_select :category_id, Category.all.sort_by {|c| c.name }, :id, :name %>
   </div>

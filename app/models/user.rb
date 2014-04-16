@@ -16,4 +16,11 @@ class User < ActiveRecord::Base
   def full_name
     first_name + ' ' + last_name
   end
+
+  def self.dummy
+    u = User.new
+    u.admin = false
+    u.instructor = false
+    u
+  end
 end

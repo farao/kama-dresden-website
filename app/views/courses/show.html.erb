@@ -1,6 +1,4 @@
 <h2><%= @course.name %></h2>
-<div class="course-date">1 Febuary 2015</div>
-
 <p class="course-desc"><%= @course.description %></p>
 
 <p>
@@ -10,8 +8,22 @@
 
 <p>
   <strong>Category:</strong>
-  <%= @course.category_id %>
+  <%= @course.category.name %>
 </p>
+
+<h3>Termine:</h3>
+<table>
+  <tr>
+    <th>Datum</th>
+    <th>Ort</th>
+  </tr>
+<% @course.course_dates.each do |date| %>
+  <tr>
+    <td class="course-date"><%= date.time.to_s(:short) %></td>
+    <td class="course-date"><%= date.place %></td>
+  </tr>
+<% end %>
+</table>
 
 <div class="mod-menu">
 <% if can? :update, @course %>

@@ -1,29 +1,36 @@
-<h2><%= @course.name %></h2>
-<p class="course-desc"><%= @course.description %></p>
+<div id="content-left">
+  
+  <h2><%= @course.name %></h2>
 
-<p>
-  <strong>Instructor:</strong>
-  <%= @course.user.full_name %>
-</p>
+  <p class="course-instructor">
+    <strong>Instructor:</strong>
+    <%= @course.user.full_name %>
+  </p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @course.category.name %>
-</p>
+  <p class="course-desc"><%= @course.description %></p>
 
-<h3>Termine:</h3>
-<table>
-  <tr>
-    <th>Datum</th>
-    <th>Ort</th>
-  </tr>
-<% @course.course_dates.each do |date| %>
-  <tr>
-    <td class="course-date"><%= date.time.to_s(:short) %></td>
-    <td class="course-date"><%= date.place %></td>
-  </tr>
-<% end %>
-</table>
+  <p>
+    <strong>Category:</strong>
+    <%= @course.category.name %>
+  </p>
+
+  <table class="course-dates">
+    <tr>
+      <th>Date</th>
+      <th>Location</th>
+    </tr>
+  <% @course.course_dates.each do |date| %>
+    <tr>
+      <td class="course-date"><%= date.time.to_s(:short) %></td>
+      <td class="course-date"><%= date.place %></td>
+    </tr>
+  <% end %>
+  </table>
+
+</div>
+<div id="content-right">
+  &nbsp;
+</div>
 
 <div class="mod-menu">
 <% if can? :update, @course %>

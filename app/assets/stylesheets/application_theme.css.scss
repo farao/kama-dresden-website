@@ -46,11 +46,14 @@ a {
 
 // ----- navigation ------
 
-#navWrapper {
+#navWrapper, #login {
   background-color: #E7D490;
 }
 #navbar li:hover {
   background-color: #D1B44E;
+}
+#navbar li#login-status:hover {
+  background-color: #E7D490;  
 }
 #navbar a, #navbar a:visited, #navbar a:hover {
   color: #6C580E;

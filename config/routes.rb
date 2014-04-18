@@ -1,6 +1,7 @@
 Kama::Application.routes.draw do
   devise_for :users
   get 'courses/dates' => 'courses#dates'
+  get 'courses/map_overlay' => 'courses#map_overlay'
   get 'about' => 'static#about'
   get 'impressum' => 'static#impressum'
   resources :courses

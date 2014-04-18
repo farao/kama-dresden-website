@@ -18,11 +18,24 @@
 
 // load event handlers
 $(document).ready(function() {
+    // messages
     var n = $('#notice');
     var a = $('#alert');
     n.click(function() { n.slideToggle(); } );
     a.click(function() { a.slideToggle(); } );
+    
+    // login
+    var l = $('#login');
+    var ls = $('#login-small');
+    ls.click(function() {
+        l.slideToggle();
+        if(ls.offset().top != l.offset().top)
+            l.addClass('shadow');
+        else
+            l.removeClass('shadow');
+    });
 });
+
 
 // load floating navbar
 $(function() {
@@ -32,6 +45,7 @@ $(function() {
     var navHomeY = nav.offset().top;
     var isFixed = false;
     var $w = $(window);
+    
     $w.scroll(function() {
         var shouldBeFixed = $w.scrollTop() > navHomeY;
         if (shouldBeFixed && !isFixed) {
@@ -39,10 +53,10 @@ $(function() {
                 position: 'fixed',
                 top: 0,
                 left: nav.offset().left,
-                width: nav.width()
+                width: '100%'
             });
             nav.addClass('shadow');
-            navLogo.fadeIn();
+//            navLogo.fadeIn();
             isFixed = true;
         }
         else if (!shouldBeFixed && isFixed)
@@ -51,11 +65,9 @@ $(function() {
                 position: 'static'
             });
             nav.removeClass('shadow');
-            navLogo.fadeOut(300);
+//            navLogo.fadeOut(300);
             isFixed = false;
         }
     });
 });
-
-
 

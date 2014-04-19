@@ -1,6 +1,12 @@
-<fieldset>
+<fieldset class="course-dates">
   <%= f.label :time %>
-  <%= f.text_field :time, :as => :datetimepicker %>
+  <div id="dtp" class="input-append date">
+  <%= f.text_field :time, class: 'datetimepicker', data: {format: 'dd.MM.yyy hh:mm'} %>
+    <span class="add-on">
+      <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+      </i>
+    </span>
+  </div>
   <%= f.label :place %>
   <%= f.text_field :place %>
   <%= f.hidden_field :_destroy %>

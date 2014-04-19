@@ -5,6 +5,6 @@ module CoursesHelper
     fields = f.fields_for(:course_dates, new_object, child_index: id) do |builder|
       render("courses/course_date_fields", f: builder)
     end
-    link_to(name, '#', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
+    link_to(name, 'javascript:void(0)', class: "btn add_fields", data: {id: id, fields: fields.gsub("\n", "")})
   end
 end

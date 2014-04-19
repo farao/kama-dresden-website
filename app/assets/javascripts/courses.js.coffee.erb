@@ -23,6 +23,8 @@ $ ->
     time = new Date().getTime()
     regexp = new RegExp($(this).data('id'), 'g')
     $(this).before($(this).data('fields').replace(regexp, time))
+    $('#dtp').attr('id', time+'_dtp')
+    $('#'+time+'_dtp').datetimepicker({language: 'en'})
     event.preventDefault()
 
   $('.fc-day-handlers').hide() if $('#calendar').data('instructor') == "true"

@@ -42,6 +42,5 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'simple_form'
-gem 'datetimepicker'
 gem 'devise'
 gem 'cancancan', '~> 1.7'

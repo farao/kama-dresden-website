@@ -23,9 +23,16 @@ body {
   padding: 0px;
   height: 100%;
 }
+p, ol, ul, td {
+  padding: 0;
+}
 
 #header {
   overflow: hidden;
+}
+#header-logo {
+  margin-left: 20px;
+  height: 100px;
 }
 
 #footer {
@@ -136,9 +143,10 @@ form {
 }
 input, textarea {
   padding: 3px;
+  vertical-align: baseline;
 }
 
-form .field {
+form .field, form fieldset {
   margin-bottom: 10px;
 }
 form .actions {
@@ -185,7 +193,7 @@ form .actions {
   border-top: 1px solid #EEE;
 }
 
-.btn, .add_fields {
+.btn {
   padding: 5px 10px 5px 5px;
   margin: 5px 0px;
   font-weight: bold;
@@ -195,7 +203,7 @@ img.btn {
   padding: 5px;
 }
 
-.btn img, .add_fields img {
+.btn img {
   position: relative;
   top: 3px;
   margin-right: 3px;

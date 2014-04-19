@@ -37,7 +37,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
-    datetimepicker (0.0.3)
     devise (3.2.0)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -123,7 +122,6 @@ PLATFORMS
 DEPENDENCIES
   cancancan (~> 1.7)
   coffee-rails (~> 4.0.0)
-  datetimepicker
   devise
   jbuilder (~> 1.2)
   jquery-rails

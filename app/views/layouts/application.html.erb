@@ -10,9 +10,8 @@
 <body>
 
 <div id="header">
-
-  <%= image_tag 'header.png' %>
-
+  <%= image_tag 'kama_logo.png', id: 'header-logo', desc: 'KAMA Dresden e.V.' %>
+  
   <div id="navWrapper">
     <div id="navbar">
       <ul class="menu">
@@ -20,7 +19,7 @@
         <li><%= link_to 'Kurse', '/courses', class: cp('courses') %></li>
         <li><%= link_to 'Impressum', '/impressum', class: cp('impressum') %></li>
       </ul>
-      <%= image_tag 'navbar_logo.png', id: 'navLogo' %>
+      <%= image_tag 'kama_logo_med.png', id: 'navLogo' %>
       <ul id="login-small">
         <li><%= link_to image_tag('user.png'), 'javascript:void(0);', id: 'user-login' %></li>
       </ul>

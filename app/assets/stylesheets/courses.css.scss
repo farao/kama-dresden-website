@@ -47,15 +47,17 @@
 }
 
 // ---- course dates ----
-.course-dates th {
-  text-align: left;
-}
 
 .course-dates th, .course-dates td {
+  text-align: left;
   padding: 0px 10px;
 }
 
-.edit_course fieldset {
+fieldset.course_dates div, fieldset.course_dates label {
+  
+}
+
+.edit_course fieldset, .new_course fieldset {
   border: 0px;
   border-bottom: 1px solid;
 }
@@ -63,4 +65,9 @@ a.remove_fields {
   position: relative;
   top: 12px;
 }
+
+.datetimepicker {
+  width: 110px;
+}
+
 

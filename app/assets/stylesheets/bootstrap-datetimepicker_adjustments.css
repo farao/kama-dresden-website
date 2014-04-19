@@ -1,0 +1,8 @@
+.bootstrap-datetimepicker-widget td span{
+  height:25px;
+  line-height:25px;
+}
+
+.bootstrap-datetimepicker-widget thead tr:first-child th:hover, .bootstrap-datetimepicker-widget td.day:hover, .bootstrap-datetimepicker-widget td.hour:hover, .bootstrap-datetimepicker-widget td.minute:hover, .bootstrap-datetimepicker-widget td.second:hover, .input-append .add-on, .input-prepend .add-on {
+  background-color: #FFFAE4;
+}

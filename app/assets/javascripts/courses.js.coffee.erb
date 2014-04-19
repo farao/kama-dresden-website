@@ -3,6 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
+  # calendar
   createDatePopup = (date, allDay, jsEvent, view) ->
     if allDay
       window.location.href="courses/new?year=" + date.getFullYear() + "&month=" + (date.getMonth() + 1) + "&day=" + date.getDate()
@@ -14,6 +15,7 @@ $ ->
       url: '/courses/dates'
       backgroundColor: 'yellow'
 
+  # edit/add course
   $('form').on 'click', '.remove_fields', (event) ->
     $(this).prev('input[type=hidden]').val('1')
     $(this).closest('fieldset').hide()
@@ -28,3 +30,66 @@ $ ->
     event.preventDefault()
 
   $('.fc-day-handlers').hide() if $('#calendar').data('instructor') == "true"
+
+  # openstreetmap
+  init_map = ->
+    # create base map
+    proj4326 = new OpenLayers.Projection("EPSG:4326")
+    projmerc = new OpenLayers.Projection("EPSG:900913")
+
+    lon = 13.7427
+    lat = 51.0552
+
+    mapCenterPositionAsLonLat = new OpenLayers.LonLat(lon, lat)
+    mapCenterPositionAsMercator = mapCenterPositionAsLonLat.transform(proj4326, projmerc)
+    mapZoom = 15
+
+    map = new OpenLayers.Map "locationPickerMap",
+      controls: [
+        new OpenLayers.Control.KeyboardDefaults(),
+        new OpenLayers.Control.Navigation(),
+        new OpenLayers.Control.LayerSwitcher({'ascending':false}),
+        new OpenLayers.Control.PanZoomBar(),
+        new OpenLayers.Control.MousePosition()
+      ]
+      maxExtent: new OpenLayers.Bounds(-20037508.34,-20037508.34,20037508.34, 20037508.34)
+      numZoomLevels: 18
+      maxResolution: 156543
+      units: 'm'
+      projection: projmerc
+      displayProjection: proj4326
+
+    osmLayer = new OpenLayers.Layer.OSM("OpenStreetMap")
+    map.addLayer(osmLayer)
+    map.setCenter(mapCenterPositionAsMercator, mapZoom)
+
+    # add location picker
+    locationPickerLayer = new OpenLayers.Layer.Vector("LocationPicker Marker")
+    map.addLayer(locationPickerLayer)
+    locationPickerPoint = new OpenLayers.Geometry.Point(mapCenterPositionAsMercator.lon, mapCenterPositionAsMercator.lat)
+    locationPickerMarkerStyle = {externalGraphic: '<%= image_path('location_marker2.png') %>', graphicHeight: 45, graphicWidth: 30, graphicYOffset: -45, graphicXOffset: -15 }
+    locationPickerVector = new OpenLayers.Feature.Vector(locationPickerPoint, null, locationPickerMarkerStyle)
+    locationPickerLayer.addFeatures(locationPickerVector)
+
+    dragFeature = new OpenLayers.Control.DragFeature locationPickerLayer,
+      onComplete:  ( feature, pixel ) ->
+        selectedPositionAsMercator = new OpenLayers.LonLat(locationPickerPoint.x, locationPickerPoint.y)
+        selectedPositionAsLonLat = selectedPositionAsMercator.transform(projmerc, proj4326)
+
+        window.current_fieldset.children('input[data-type=lat]').val(selectedPositionAsLonLat.lat)
+        window.current_fieldset.children('input[data-type=lon]').val(selectedPositionAsLonLat.lon)
+
+    map.addControl(dragFeature)
+    dragFeature.activate()
+  
+  map_loaded = ->
+    $('#remember input').change =>
+      window.current_fieldset.children('input[data-type=name]').val($(this).val())
+      false
+
+    init_map()
+
+  # show map on click on "Add Course Date" button
+  $('form').on 'click', '.add_fields', (event) ->
+    window.current_fieldset = $('form fieldset:last')
+    $.colorbox({href: '/courses/map_overlay', onComplete: -> map_loaded()})

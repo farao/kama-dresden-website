@@ -3,6 +3,10 @@
 <%= render 'form' %>
 
 <div class="mod-menu">
-<%= link_to image_tag('show.png')+'Show', @course, class: 'btn' %> |
-<%= link_to image_tag('back.png')+'Back', courses_path, class: 'btn' %>
+  <%= link_to image_tag('show.png')+'Show', @course, class: 'btn' %> |
+  <%= link_to image_tag('back.png')+'Back', courses_path, class: 'btn' %>
 </div>
+
+<%= javascript_include_tag "http://www.openlayers.org/api/OpenLayers.js" %>
+<%= javascript_include_tag "jquery.colorbox.js" %>
+<%= stylesheet_link_tag "colorbox.css" %>

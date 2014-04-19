@@ -4,4 +4,8 @@ class Place < ActiveRecord::Base
   validates :name, presence: true
   validates :lat, presence: true
   validates :lon, presence: true
+
+  def remembered
+    where(remember: true)
+  end
 end

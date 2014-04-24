@@ -8,6 +8,9 @@ class Ability
     else
       can :create, Course if user.instructor?
       can [:update, :destroy], Course, user: user
+
+      can :create, Place if user.instructor?
+      can [:update, :destroy], Place, user: user
     end
 
     # Define abilities for the passed in user here. For example:

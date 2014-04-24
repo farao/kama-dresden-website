@@ -5,7 +5,7 @@ class Place < ActiveRecord::Base
   validates :lat, presence: true
   validates :lon, presence: true
 
-  def remembered
+  def self.remembered
     where(remember: true)
   end
 end

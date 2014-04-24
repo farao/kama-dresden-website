@@ -46,8 +46,11 @@ a {
 
 // ----- navigation ------
 
-#navWrapper, #login {
+#navWrapper, #login, #login-small {
   background-color: #E7D490;
+}
+#header {
+  background-color: #FFFAE4;
 }
 #navbar li:hover {
   background-color: #D1B44E;
@@ -67,12 +70,16 @@ a {
   border: 3px dashed #E7D490;
 } // */
 
-input, textarea, #calendar .fc-button, .btn, .add_fields {
+input, textarea, #calendar .fc-button, .btn, .input-append .add-on, .input-prepend .add-on {
   border: 1px solid #E7D490;
   border-radius: 2px;
   background: #FFFAE4;
 }
-.actions input, #calendar .fc-button, .btn, .add_fields {
+input[type=text]:focus, textarea:focus {
+    border: 2px solid #E7D490;
+    padding: 2px;
+}
+.actions input, #calendar .fc-button, .btn, .input-append .add-on, .input-prepend .add-on {
   color: #6C580E;
   font-weight: bold;
   &:active {
@@ -81,6 +88,12 @@ input, textarea, #calendar .fc-button, .btn, .add_fields {
   &:hover {
   text-decoration: none;
   }
+}
+
+.input-append .active,
+.input-prepend .active {
+  background-color: #a9dba9;
+  border-color: #46a546;
 }
 
 // ----- calendar/events ------

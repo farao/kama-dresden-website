@@ -26,8 +26,9 @@ $ ->
     regexp = new RegExp($(this).data('id'), 'g')
     $(this).before($(this).data('fields').replace(regexp, time))
     $('#dtp').attr('id', time+'_dtp')
-    $('#'+time+'_dtp').datetimepicker({language: 'en'})
+    $('#'+time+'_dtp').datetimepicker({language: 'en', pickSeconds: false})
     event.preventDefault()
+    $('#'+time+'_dtp').focus -> $('#'+time+'_dtp')[1].click()
 
   $('.fc-day-handlers').hide() if $('#calendar').data('instructor') == "true"
 
